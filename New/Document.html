@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+	.teo{
+		width:400px;
+		height: 400px;
+		background-color: black;
+	}
+	</style>
+</head>
+<body>
+	<div class="container" id="container">
+	<div class="content" id="content"></div>
+	</div>
+	<script type="text/javascript">
+		var newE= document.createElement('div');
+		var position= document.getElementById('container');
+		position.appendChild(newE);
+		var teo1= document.getElementById('content').nextSibling;
+		teo1.setAttribute('class','teo');
+		</script>
+</body>
+</html>
