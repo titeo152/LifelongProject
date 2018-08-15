@@ -1,0 +1,287 @@
+$titlefont: 4em;
+$title-shadow:0.07em 0.07em 0.07em grey;
+*{
+	padding:0px;
+	margin:0px;
+	box-sizing: border-box;
+}
+body{
+	text-align: center;
+	font-size:100%;
+	margin: 2em;
+}
+
+.welcome{
+	height:100vh;
+	width:100%;
+	opacity:0;
+	animation-duration:2s;
+	animation-name:start;
+	animation-fill-mode:forwards;	
+	h2{
+	font-size:5em;
+	}
+	h1{
+	font-size:3em;
+	}
+	#first{
+		position:relative;
+		margin-top:12em;
+	}
+
+}
+@keyframes start{
+	100%{opacity:1;}
+}
+.nav{
+	width: 100%;
+	position:sticky;
+	z-index:10;
+	top:0px;
+	display:grid;
+	grid-template-columns:repeat(6,1fr);
+	align-content: center;
+	font-size:1.3em;
+	color:white;
+	font-weight:bold;
+	a{
+		text-decoration:none;
+		color:white;
+	}
+	div{
+		background-color:#EB7153;
+		padding:0.6em 0 0.6em 0;
+		text-shadow: $title-shadow;
+		cursor:pointer;
+	}
+	div:hover{
+		background-color:#E33539;
+	}
+}
+.content{
+	margin-top:1em;
+	display:grid;
+	grid-row-gap: 1em;
+	.about{
+		padding-top: 4em;
+		width:100%;
+		background-image:url("image/Food-Photography-Props-Web.jpg") ;
+		background-size: cover;
+		background-attachment: fixed;
+		.title{
+			text-shadow: $title-shadow;
+			font-size:$titlefont;
+			font-weight: bold;
+			color:white;
+			text-align:center;
+		}
+		.content1{
+			margin:auto;
+			width:45%;
+			font-size:1.5em;
+			text-align:center;
+			color:#FCE0A6;
+			padding: 0 0 180px 0;
+		}
+	}
+	.feature{
+		padding-top: 4em;
+		width: 100%;
+		text-align:center;
+		background-image:url("image/background-homepage-web-wood-opera-media-images-79414.jpg");
+		background-size:cover;
+		background-attachment: fixed;
+		.title1{
+			text-shadow: $title-shadow;
+			font-size:$titlefont;
+			font-weight:bold;
+			color:white;
+		}
+		.photogrid{
+			margin:15em 0.5em 5em 0.5em;
+			display:grid;
+			grid-gap:0.5em;
+			grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+			grid-auto-rows: 250px;
+			div{
+				overflow:hidden;
+				p{
+					position:absolute;
+					z-index:10;
+					top:80%;
+					left:-100%;
+					color:white;
+					background-color:brown;
+					display:block;
+					font-size:2em;
+					font-weight:bold;
+					transition: all 0.5s; 
+					opacity:0;
+				}
+				&:hover p{
+					opacity:1;
+					left:0%;
+				}
+			}
+			
+		.photoes{
+			opacity:0;
+			transform:translateX(-20px);
+			transition:all 0.5s ease-out;
+
+		}
+		.isShowing{
+			opacity:1;
+			transform:translateX(0);
+		}
+		}
+
+		img{
+			position:relative;
+			width: 100%;
+			height:100%;
+			z-index:2;
+			transition:all 1s;
+		}
+
+		img:hover{
+			transition: all 1s;
+			cursor: pointer;
+			transform:scale(1.19);
+		}
+	}
+	.event{
+		padding-top: 4em;
+		background-image:url("image/main_background2.png");
+		background-size: cover;
+		background-attachment: fixed;
+		.title{
+			text-shadow: $title-shadow;
+			font-size:$titlefont;
+			color:white;
+			padding: 30px 0 30px 0;
+		}
+		.content2{
+			display:flex;
+			flex-direction:row;
+			flex-wrap:wrap;
+			justify-content: center;
+			div{
+				width:20em;
+				border: thick solid white;
+				border-radius: 30px;
+				margin:0em 1em 2em 1em;
+				padding:1em 2em 2em 1em;
+				transition: all 1s;
+				transform-origin: 50% 50%;
+				
+				h1{
+					font-size: 1.5em;
+					color:#FCDAD5;
+					padding: 0.5em;
+				}
+				h2{
+					font-size: 2.5em;
+					padding: 0.5em;
+					color:#F5A89A;
+				}
+				p{
+					padding: 0.5em;
+					color:white;
+					font-size:1.5em;
+				}
+				img{
+					padding: 0.5em;
+					color:white;
+					opacity:0.5; 
+				}
+			}
+		}
+	}
+	.event1:hover  {
+		transition: all 1s;
+		cursor: pointer;
+		transform:scale(1.09);
+	}
+	.event2:hover  {
+		transition: all 1s;
+		cursor: pointer;
+		transform:scale(1.09);
+	}
+	.event3:hover  {
+		transition: all 1s;
+		cursor: pointer;
+		transform:scale(1.09);
+	}
+	.reservation{
+		padding-top: 4em;
+		width:100%;
+		background-image:url("image/Food-Free-Meal-Plan.jpg");
+		background-size:cover;	
+		background-attachment: fixed;
+		h3{	
+			text-shadow:$title-shadow;
+			margin: 10px;
+			font-size:$titlefont;
+			color:#EB7153;
+		}
+		.content3{
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			justify-content: center;
+			.reservation_form{
+				margin:3em;
+			}
+			.contact_info{
+				margin:3em;
+			}
+			.container{
+				width:25em;
+				display:grid;
+				grid-template-rows: repeat(5,1fr);
+				grid-gap:1em;
+				input,button{
+					padding: 0.5em;
+					border-radius: 0.7em;
+					font-size: 1.5em;
+					font-weight:bold;
+					border-style:none;
+
+				}
+				button:hover{
+					background: linear-gradient(90deg, #b01c20 0%, #f15c60 100%);
+					color:white;
+				}
+				p{
+					color:red;
+					font-weight:bold;
+				}
+			}
+		}
+	}
+}
+@media(max-width: 600px){
+	html{
+		font-size: 12px;
+	}
+		.nav{
+			font-size:1em;
+		}
+}
+@media (max-width:414px ){
+	html{
+		font-size: 11px;
+	}
+	.nav{
+		grid-template-columns: 1fr;
+	}
+}
+@media (max-width:375px){
+	html{
+		font-size: 10px;
+	}
+	.nav{
+		grid-template-columns: 1fr;
+	}
+}

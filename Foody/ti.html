@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function commonCharacterCount(s1, s2) {
+			s1=s1.split('');
+			s2=s2.split('');
+    var dem=0;
+for(j=0;j<s1.length;j++){
+    for(var i=0;i<=s2.length;i++){
+        if(s1[j]==s2[i]){
+            dem++;
+             	s1.splice(j,1);
+            s2.splice(i,1);
+            j=-1;
+            break;
+
+        }
+    }
+}
+return dem;
+}
+var teo= commonCharacterCount('11222','23221');
+console.log(teo);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<!--<meta http-equiv="refresh" content="5" />-->
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<title>Untitled Document</title>
+<style>
+#sendtrigger,#sendsteps{
+	background-color:rgb(100,149,237);
+	color:white;
+	font-weight:bold;
+}
+#datetime{
+	margin-left:700px;
+	font-size:30px;
+}
+body{
+	background-image:url(350829-widescreen-website-background-1920x1080-windows-xp.jpg);
+	background-size:cover;
+}
+.new {
+	font-weight: bold;
+	color: #F00;
+	animation-name: change;
+	animation-duration: 4s;
+	animation-iteration-count: infinite
+}
+@keyframes change {
+ 0% {
+color:#F00;
+font-size:50px
+}
+ 50% {
+color:#C66;
+font-size:80px
+}
+ 75% {
+color:#6F0;
+font-size:80px
+}
+ 100% {
+color:#099;
+font-size:50px
+}
+}
+#mycanvas{
+	display:none;
+}
+#canvas {
+	width: 700px;
+	height: auto;
+}
+#piechart {
+	display: none;
+}
+.p {
+	font-size: 50px;
+	font-weight: bold;
+	color: rgb(100,149,237);
+}
+#container {
+	padding-left: 300px;
+	margin: auto;
+}
+img {
+	size: 300px;
+}
+</style>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="Chart.min.js"></script>
+<script src="bootstrap.min.js"></script>
+ 
+<!--<script type="text/javascript" src="linegraph.js"></script> -->
+</head>
+<body>
+<script>
+$(document).ready(function() {
+	$("#sendtrigger").click(function(){
+		var threshold= $("#trigger").val();
+		$.get("insertthreshold.php",{threshold: threshold},function(data){
+		});
+		}) 
+});
+Chart.defaults.global.defaultFontColor = 'rgb(100,149,237)';
+Chart.defaults.global.defaultFontStyle = 'bold';
+$(document).ready(function(){
+	$("#sendsteps").click(function(){
+		var setsteps= $("#setsteps").val()
+		$.get("http://localhost:1234/luanvan/setsteps.php",{setsteps: setsteps},function(data){});
+		})
+	})
+</script>
+ <script>
+$(document).ready(function(e) {
+$("#getchart").click(function(){
+	$("#piechart").hide(500);
+	$("#mycanvas").show(1000);
+});
+});
+
+</script>
+
+<div class="container-fluid" id="container">
+  <div class="row">
+    <p class="p" id="datetime"></p>
+  </div>
+  <div class="row">
+    <div class="col-md-1"><img src="icons8-volunteering-100.png" width:"64" height="64" /></div>
+    <div class="col-md-2">
+      <p class="p" id="heartbeat"></p>
+      <audio src="254819_thoribass_notification2-freesound (online-audio-converter.com).mp3" id="alert"  ></audio>
+    </div>
+    <div class="col-md-3">
+      <form method="get" >
+        <div class="input-group input-group-sm" style=" padding-top:20px">
+          <input id="trigger" type="text" class="form-control" placeholder="Insert Your Heart Trigger" />
+          <div class="input-group-btn">
+            <input id="sendtrigger" type="button" value="Insert" class="btn" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"><img src="icons8-baby-footprint-64.png" width="64" height="64"/></div>
+    <div class="col-md-2">
+      <p class="p" id="steps"></p>
+    </div>
+    <div class="col-md-3">
+      <form method="get" >
+        <div class="input-group input-group-sm" style=" padding-top:20px">
+          <input id="setsteps" type="text" class="form-control" placeholder="Insert Your Steps" />
+          <div class="input-group-btn">
+            <input id="sendsteps" type="button" value="Insert" class="btn " />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div  id="canvas">
+    <canvas id="mycanvas"></canvas>
+  </div>
+  <canvas id="piechart" height="300px" width="300px"></canvas>
+
+  <form method="get">
+    <input type="button" value="Pie" id="getpercent" class="btn btn-danger"  />
+    <input type="button" value="Chart" id="getchart" class="btn btn-danger"   />
+  </form>
+
+  <script type="text/javascript" src="linegraph.js"></script>
+  <script type="text/javascript" src="Stimulate.js"></script> 
+</div>
+</body>
+</html>

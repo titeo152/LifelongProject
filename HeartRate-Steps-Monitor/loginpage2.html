@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script src="bootstrap.min.js"></script>
+
+<style>
+.input{
+	border-radius:10px;
+	text-align:center;
+	height:40px;
+}
+th, td {
+	color: #00C;
+    padding: 10px;
+}
+#submit{ margin:30px 0 0 370px; font-size:24px; text-align:center; width:100px}
+body{
+	background-image: url(professional-images-for-website-background-8.jpg);
+	background-size: cover;
+	
+}
+#submit: hover{
+	background-color:red;}
+#teo {
+	font-size:25px;
+	margin: 200px 0 0 450px;
+
+}
+</style>
+</head>
+
+<body>
+<script>
+$(document).ready(function() {
+    $('#submit').click(function(){
+		var user= $("#username").val();
+		var pass= $("#password").val();
+		$.post("http://localhost:1234/luanvan/check.php",{username:user, password:pass},function(data){
+			if(data >0){
+				window.location="http://localhost:1234/luanvan/index2.html";
+			}
+			else{
+	     var a= document.getElementById('again');
+		 a.innerHTML="Please Login Again";
+		 a.setAttribute("style","color:red");
+			}
+		});
+	});
+});
+</script>
+<div id="teo">
+<form method="post">
+<table width="450">
+  <tr>
+    <td>UserName</td>
+    <td><input id="username" class="input" placeholder="Insert your username" /></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input type="password" id="password" class="input" placeholder="Insert your password" /></td>
+  </tr>
+</table>
+<input id="submit"   value="Login" class=" btn btn-success" />
+<p id="again"></p>
+</form>
+</div>
+</body>
+</html>
